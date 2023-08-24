@@ -1,83 +1,89 @@
 import './style.css'
-import { generateHobbiesList } from './generator';
 
-// let, const y "var no se ocupa"
+//Declaracion de variables de tipo string
 
-//strings
-let name: string;
-name = 'Keila';
+let name:     string,
+    lastName: string,
+    birthday: string;
 
-// numbers
-const age: number = 18;
-const legalAge: number = 18;
+name     = 'keila';
+lastName = 'Gutierrez';
+birthday = '2003-11-19';
 
-// boolean
-let isOfLegalAge: boolean; 
+let name1:     string = 'Carlos';
+let lastName1: string = 'Ortega';
+let birthday1: string = '1995-01-22';
 
-// condicionales
+name1 = 'Alberto';
+lastName1 = 'Juarez';
+birthday1 = '2000-06-19';
 
-if( age >= legalAge ){
-  isOfLegalAge = true;
-}else {
-  isOfLegalAge = false
-}
+//concatenacion de variables
 
+let fullName: string = name + ' ' + lastName;
+// console.log({fullName});
 
-const hobbies: string[] = [
-  'Comer chocolate', 
-  'Estudiar Ingles', 
-  'Escuchar k-pop',
-  'Ver a al mejor novio del mundo',
-  'comer'
-];
+//salto de linea en un string \n
+fullName = name + '\n' + lastName;
+// console.log('salto de linea: ', fullName);
 
-const favoriteFood: string[] = [
-  'Pozole', 
-  'Enchiladas Mole', 
-  'Albondigas'
-];
+//Tabulacion en un string \t
+fullName = name + '\t' + lastName;
+// console.log('tabulacion: ', fullName);
 
 
-let hobbiesString: string = '';
+// interpolacion de strings
+fullName = `${name} ${lastName}`;
 
-for(let i: number = 0; i < hobbies.length; i++ ){
-  hobbiesString += `<li>${hobbies[i]}</li>`
-}
+
+//metodos e indices
+
+//metodo substring
+//Extrae un texto en un rango determinado
+let onlyNameSubstring = fullName.substring(0, 5);
+console.log(onlyNameSubstring);
+
+//metodo split
+//divide la cadena en un arreglo, indicando su separador
+let onlyNameSplit: string = fullName.split(' ')[0];
+console.log(onlyNameSplit);
+
+//metodo toUpperCase()
+//Convierte a mayusculas un texto
+let fullNameUpperCase: string = fullName.toUpperCase();
+console.log(fullNameUpperCase);
+
+//metodo toLowerCase()
+//Convierte a minusculas un texto
+let fullNameLowerCase: string = fullNameUpperCase.toLowerCase();
+console.log(fullNameLowerCase);
+
+//metodo trim()
+// Borra los espacios al inicio y al final de un texto
+let message: string = '      Necesito que me contactes urgentemente       ';
+console.log( message.trim() );
+
+//metodo slice()
+//Extrae un fragmento de texto mediante el indice inicial y retorna un nuevo string
+let pharagraph = 'The quick brown fox jumps over the lazy dog.';
+let p = pharagraph.slice(31);
+console.log( p )
+
+//metodo replace()
+//Remplaza un valor dentro de un string por otro valor
+let text = 'Hola mundo mundo mundo mundo';
+let replaceText = text.replace('mundo', 'a todos');
+console.log(replaceText);
+
+//metodo replaceAll()
+//Remplaza todas las coincidencias en un texto
+replaceText = text.replaceAll('mundo', 'a todos');
+console.log(replaceText);
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = ` 
   <div>
-    <h2>Nombre: ${name}</h2>
-    <h3>Edad: ${age}</h3>
-    <span>Es mayor de edad?: ${(isOfLegalAge)? 'si' : 'no'} </span>
 
-    <hr/>
-    <h3>Ciclo for para hobbies</h3>
-    <ul>
-      ${ hobbiesString }
-    </ul>
-
-    <hr/>
-    <h3>Ciclo for para comidas</h3>
-    <ul>
-        //TODO
-        mostrar la lista de comidas
-    </ul>
 
   </div>
 `;
-
-
-// <li>${hobbies[0]}</li>
-// <li>${hobbies[1]}</li>
-// <li>${hobbies[2]}</li>
-
-// arrays
-
-// const hobbies: (string | number)[] = [
-//   'Comer chocolate', 
-//   'Estudiar Ingles', 
-//   'Escuchar k-pop',
-//   10
-// ];
-
