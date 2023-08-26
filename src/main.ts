@@ -80,6 +80,21 @@ console.log(replaceText);
 replaceText = text.replaceAll('mundo', 'a todos');
 console.log(replaceText);
 
+let textOrigin: string = "El río fluye y fluye sin detenerse."
+
+
+let positionNumber: number = textOrigin.indexOf('fluye');
+let position: number = textOrigin.indexOf('fluye', positionNumber + 1);
+
+let rest: string = textOrigin.slice(position);
+let firstText: string = textOrigin.slice(0, position -1);
+
+rest = rest.replace('fluye', 'con');
+rest = rest.replace('sin', 'mucha');
+rest = rest.replace('detenerse', 'basura');
+
+console.log(firstText, rest);
+
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = ` 
   <div>
