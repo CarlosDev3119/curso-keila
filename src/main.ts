@@ -1,83 +1,86 @@
-import './style.css'
-import { generateHobbiesList } from './generator';
+import './style.css';
 
-// let, const y "var no se ocupa"
+let edad: number = 19;
 
-//strings
-let name: string;
-name = 'Keila';
+// convertir numeros a string 
+let edadString: string = edad.toString();
 
-// numbers
-const age: number = 18;
-const legalAge: number = 18;
+//metodo valueOf: retorna el valor primitivo de un objeto 
+let year: number = 2023;
+// console.log({edad, edadString, year: year.valueOf()});
 
-// boolean
-let isOfLegalAge: boolean; 
+// operadores basicos + - * / 
 
-// condicionales
+let addition: number = 10 + 20;
 
-if( age >= legalAge ){
-  isOfLegalAge = true;
+//order of operations
+
+let operation: number = (5 + (7 * 9));
+console.log(operation);
+
+//metodo Math.min
+let number1: number = 20, number2: number = 10, number3 =38;
+let answer: string;
+
+if(number1 > number2 && number1 > number3){
+  answer = `El numero mayor es ${number1}`
 }else {
-  isOfLegalAge = false
+  if(number2 > number1 && number2 > number3){
+
+    answer = `El numero mayor es ${number2}`
+  }else{
+    answer = `El numero mayor es ${number3}`
+  }
 }
 
+let smallestNumber: number = Math.min(number1, number2, number3);
+answer = `El numero Menor es ${smallestNumber}`;
+//metodo Math.max
 
-const hobbies: string[] = [
-  'Comer chocolate', 
-  'Estudiar Ingles', 
-  'Escuchar k-pop',
-  'Ver a al mejor novio del mundo',
-  'comer'
-];
+let largestNumber: number = Math.max(number1, number2, number3)
+console.log(largestNumber)
 
-const favoriteFood: string[] = [
-  'Pozole', 
-  'Enchiladas Mole', 
-  'Albondigas'
-];
+//square root 
+let numberSqrt: number = 16;
+let resp: number = Math.sqrt(numberSqrt);
+console.log(resp);
+
+// Method pow 
+let numberPow: number = Math.pow(2, 8);
+console.log(numberPow)
+
+// method round, toFixed
+
+let decimal: number = 10.525123123123123123;
+//round
+console.log( Math.round(decimal) );
+// toFixed
+console.log(`fixed ${decimal.toFixed(2)}`);
+
+//convert string to number
+let numberString: string = '1998';
+// let stringToNumber: number = Number(numberString);
+let stringToNumber: number = +numberString;
+
+const a = 3;
+const b = 7;
+const c = -10;
+
+// let equation: number = ();
+
+// -b+-raiz(bcuadrada-4ac/2a)
 
 
-let hobbiesString: string = '';
 
-for(let i: number = 0; i < hobbies.length; i++ ){
-  hobbiesString += `<li>${hobbies[i]}</li>`
-}
+
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = ` 
   <div>
-    <h2>Nombre: ${name}</h2>
-    <h3>Edad: ${age}</h3>
-    <span>Es mayor de edad?: ${(isOfLegalAge)? 'si' : 'no'} </span>
-
-    <hr/>
-    <h3>Ciclo for para hobbies</h3>
-    <ul>
-      ${ hobbiesString }
-    </ul>
-
-    <hr/>
-    <h3>Ciclo for para comidas</h3>
-    <ul>
-        //TODO
-        mostrar la lista de comidas
-    </ul>
-
+    
   </div>
 `;
 
 
-// <li>${hobbies[0]}</li>
-// <li>${hobbies[1]}</li>
-// <li>${hobbies[2]}</li>
 
-// arrays
-
-// const hobbies: (string | number)[] = [
-//   'Comer chocolate', 
-//   'Estudiar Ingles', 
-//   'Escuchar k-pop',
-//   10
-// ];
 
