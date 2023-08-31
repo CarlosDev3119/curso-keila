@@ -66,7 +66,7 @@ const a = 3;
 const b = 7;
 const c = -10;
 
-// let equation: number = ();
+// let equation: number = ();c
 
 // -b+-raiz(bcuadrada-4ac/2a)
 
