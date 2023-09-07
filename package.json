@@ -1,15 +1,22 @@
 {
-  "name": "01-basic",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "02-arrays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node dist/app.js",
+    "build": "rimraf ./dist && tsc",
+    "dev": "nodemon"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "@types/node": "^20.5.9",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }
