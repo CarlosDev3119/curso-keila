@@ -1,165 +1,62 @@
-// type Heroe = {
-//     nombre: string;
-//     nombreNormal: string;
-//     superPoder: string;
-//     edad: number;
-//     equipo: {
-//         amigo1: string;
-//     };
+import { PersonProps } from "./interfaces/interfaces";
+
+
+// const person2: PersonProps = {
+//     name: 'Carlos',
+//     address: {
+//         num: 22,
+//         street: 'Tempestad',
+//         province: 'San Jeronimo'
+//     },
+//     email: 'Carlos@gmail.com',
+//     hobbies: ['Jugar', 'Programar', 'Besar a su novia']
 // }
 
-type Equipo = {
-    amigo1: string;
-}
-
-interface HeroeInterface {
-    nombre: string;
-    nombreNormal: string;
-    superPoder: string;
-    edad: number;
-    equipo: Equipo;
-}
-
-
-const superHeroeDC: HeroeInterface = {
-    nombre: 'Batman',
-    nombreNormal: 'Bruce Wayne',
-    superPoder: 'Billonario',
-    edad: 38,
-    equipo: {
-        amigo1: 'wonder woman'
-    }
-}
-
-
-let mensaje: string = `
-    El super heroe es: ${ superHeroeDC.nombre }
-    Su Nombre de pila es: ${ superHeroeDC.nombreNormal }
-    Superpoder: ${ superHeroeDC.superPoder }
-`;
-
-type FechaNacimiento = {
-    ciudad: string;
-    Pais: string;
-}
-
-interface ArtistaInterface {
-    nombre: string;
-    edad: number;
-    rol: string;
-    lugarDeNacimiento: FechaNacimiento;
-    altura: number;
-    colorDeCabelloActual: string;
-}
-
-const jiminBTS: ArtistaInterface = {
-    nombre: "Jimin",
-    edad: 25,
-    rol: "Vocalista principal y bailarín",
-    lugarDeNacimiento: {
-        ciudad: "Busan",
-        Pais:  "Corea del Sur"
+//Propiedas del obeto con interfaces
+const person: PersonProps = {
+    name: 'Keila',
+    address: {
+        street: 'Lluvia',
+        num: 'Ret 50',
+        province: 'Cuatro Vientos',
     },
-    altura: 173, 
-    colorDeCabelloActual: "Negro",  
+    email: 'keila@gmail.com',
+    hobbies: ['Comer chocolates', 'Comerse a su novio']
 };
+// let emailUser: string = person2.email;
+// let hobbiesUser: string[] = person2.hobbies;
+// let nombreUser: string = person2.name;
+// let calle: string = person2.address.street;
+// let numeroExterior: string | number = person2.address.num;
 
-const jungkook: ArtistaInterface = {
-    altura: 180,
-    colorDeCabelloActual: "Cafe",
-    edad: 25,
-    nombre: 'Jungkook',
-    lugarDeNacimiento:{
-        ciudad: "Busan",
-        Pais: "Corea del Sur"
-    },
-    rol: "Cantante principal"
-}
+// let card: string = `
+//     Nombre de Usuario: ${name}
+//     ================================
+//     -------Datos del contacto-------
+//     Correo electronico: ${email}
+//     Direccion de emergencia: 
+//         calle: ${street}
+//         Numero Exterior: ${num}
+//     ================================
+// `
 
-type Actor = {
-    nombre: string;
-    edad:number;
-    personaje: string;
-}
+//desestructuracion
+const { name: nombreUser, address, email: emailUser } = person;
+const { num: numeroExterior, street: calle } = address;
 
-type Critica = {
-    critico: string;
-    opinion: string;
-}
+console.log(emailUser);
 
-interface ResenaProps {
-    calificacion: number;
-    comentario: string;
-    criticas: Critica[]
-}
-
-interface PeliculaInterface {
-    titulo: string;
-    director: string;
-    genero: string;
-    actores: Actor[];
-    resena: ResenaProps;
-}
-
-const avengers: PeliculaInterface = 
-{
-    titulo: "Avengers: Endgame",
-    director: "Anthony y Joe Russo",
-    genero: "Acción",
-    actores: [
-      {
-        nombre: "Chris Evans",
-        edad: 41,
-        personaje: "Steve Rogers / Capitán América",
-      },
-      {
-        nombre: "Scarlett Johansson",
-        edad: 37,
-        personaje: "Natasha Romanoff / Viuda Negra",
-      },
-    ],
-    resena: {
-      calificacion: 4.9,
-      comentario: "El épico cierre de la Saga del Infinito del MCU.",
-      criticas: [
-        {
-          critico: "Critico 3",
-          opinion: "Una película que no te puedes perder.",
-        },
-        {
-          critico: "Critico 4",
-          opinion: "Un homenaje a los fanáticos de Marvel.",
-        },
-      ],
-    },
-}
+let card: string = `
+    Nombre de Usuario: ${nombreUser}
+    ================================
+    -------Datos del contacto-------
+    Correo electronico: ${emailUser}
+    Direccion de emergencia: 
+        calle: ${calle}
+        Numero Exterior: ${numeroExterior}
+    ================================
+`
 
 
-const ironman: PeliculaInterface = {
-    titulo: "Iron Man",
-    director: 'Jon Favreau',
-    genero: "Accion",
-    actores: [
-        {
-            nombre: 'Robert Downey Jr.',
-            edad: 55,
-            personaje: "Tony stark / Iron man"
-        }
-    ],
-    resena: {
-        calificacion: 4.7,
-        comentario: "El comienzo del universo Cinematografico de marel",
-        criticas: [
-            {
-                critico: 'Critico 1',
-                opinion: "Una excelente película de superhéroes."
-            }
-        ]
-    }
-}
 
-const peliculas: PeliculaInterface[] = [
-    ironman, avengers
-]
-
-console.log(avengers);
+// console.log( person );
