@@ -7,13 +7,12 @@ interface Address {
 }
 
 interface User {
-    id: string;
-    password: string;
+    id?: string;
+    password?: string;
     email: string;
     departament: string;
     nameUser: string;
     address: Address;
-    [key: string]: any;
 }
 
 const user: User = {
@@ -28,30 +27,67 @@ const user: User = {
     }
 }
 
-const letrasMayusculas: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+// quitar uno o mas elementos de un objeto con desestructuracion y operador rest
 
-let existChar: boolean = user.password.includes('@');
-let letraMayuscula: string = user.password[0];
-let existUpperCase: boolean = letrasMayusculas.includes(letraMayuscula);
+//metodo 1
 
-const { password, email, id, nameUser, ...rest } = user;
-const { num, street } = rest.address;
-
-if( existChar && existUpperCase ){
-
-    if( password === 'Mip@assword' && email === 'terry@gmail.com'){
-        console.log(`Usuario autenticado
-            Usuario: ${ nameUser }
-            id: ${ id }
-            Direccion: ${ street } ${ num }
-        `);
-    }else {
-        console.log('Password o email incorrecto');
-    }
-
-}else{
-    console.log('Password incorrecto')
+const newUser = {
+    id: user.id,
+    email: user.email,
+    departament: user.departament,
+    nameUser: user.nameUser,
+    address: user.address
 }
+
+// metodo 2
+// const { id, email, departament, nameUser, address } = user;
+
+// const newUser2 = {
+//     id,
+//     email,
+//     departament,
+//     nameUser,
+//     address
+// }
+
+// metodo 3 utilizando delete
+
+// delete user.password;
+
+// metodo 4 desestructuracion y rest
+const { password, ...rest } = user;
+
+// delete rest.id;
+// console.log({user});
+// console.log({rest});
+
+const { ...newUser3 } = user;
+
+delete newUser3.password;
+// console.log( {newUser3: newUser3} );
+// console.log( {user} );
+
+interface PeliProps {
+    title: string;
+    autor?: string;
+    [key: string]: any;
+}
+
+const peliculas: PeliProps = {
+    title: 'El Rey Leon',
+}
+
+// peliculas.autor = 'Disney';
+peliculas['autor'] = 'Disney';
+
+peliculas.duration = 1000;
+peliculas.secuelas = ['El rey leon 2', 'El rey leon 3'];
+
+console.log(peliculas);
+
+
+
+
 
 
 
